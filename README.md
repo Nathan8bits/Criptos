@@ -1,2 +1,1 @@
-*input por text salvo em uma string assim que um button é selecionado, teste.
-
+*converte o string char em int e envia para o inputInt, nao faz o inverso.

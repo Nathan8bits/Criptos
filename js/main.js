@@ -1,91 +1,53 @@
-let cxMensagem = document.querySelector('#mensagem')
-let btnEnviar = document.querySelector('#btnEnviar')
-let cxSaida = document.querySelector('#saida')
-
-//let mensagem = cxMensagem.value
-
-
-//let numberMesagem = new Array(6)//linhas
-//numberMesagem[0] = new Array(3)//colunas
-//numberMesagem[1] = new Array(3)
 /*
-let cont = 0
-for (let lin=0; lin<2; lin++) {
-
-        numberMesagem[lin][cont%3] = mensagem[cont]
-        cont++
-        
-}
+funcoes:
+    intToChar;  --limite de 6 caracteres
+    charToInt;  --converte oq ta no input charMen e nao oq esta no numberMen
 */
-//let numberMesagem = cxMensagem.value
 
+let cxCharMen = document.querySelector('#charMensagem')
+let cxNumberMen = document.querySelector('#numberMensagem')
+let cxConverter = document.querySelector('#converterMensagem')
+let cxTitulo =document.querySelector('#titulo')
 
-btnEnviar.addEventListener('click', segundaletra)
+let btnEnviar = document.querySelector('#btnEnviar')
+let btnVerificar = document.querySelector('#btnVerificar')
+let btnConverter = document.querySelector('#btnConverter')
 
-function segundaletra() {
-    //let mensagem = cxMensagem.value
-    let m = new Array(6)
-    m = cxMensagem.value
-    //cxSaida.innerHTML = m
+btnEnviar.addEventListener('click', charToInt)
+btnVerificar.addEventListener('click', verificar)
+btnConverter.addEventListener('click', intToChar)
 
-    let matriz = new Array(2)
-    matriz[0] = new Array(4)
-    matriz[1] = new Array(4)
-
-   // matriz[0] = m
-   // matriz[1] = m
-    //matriz[1][1] = m[0]
-
-    //cxSaida.innerHTML = matriz
-
-    for (let i=0; i < 8; i++) {
-        //letra = m[i]
-       // numero = letra.charCodeAt(0)
-        if(i <= 3) { 
-                matriz[0][i] = m[i]
-        }
-        else if(i > 3) {
-                matriz[1][i%4] = m[i]
-        }
-        cxSaida.innerHTML = matriz
-        
+let numero = new Array(6)//array q recebera a convecao
+function charToInt () {
+    let charMen = cxCharMen.value//mensagem tipo char
+    
+    for (let i=0; i < 6; i++) {
+        numero[i] = 32//adicionando um espaco em todas as posicoes 
     }
 
-    
-    
+    for (let i=0; i < charMen.length; i++) {
+        numero[i] = charMen[i].charCodeAt(0)//efetuando a conversao
+    }
+    cxNumberMen.value = numero
 
-    /* converte de char para int
-    let letra = document.querySelector('#mensagem').value
-    let numero = letra.charCodeAt(0) 
-    cxSaida.innerHTML = numero
-    */
-    
-    /*
-    let numbermatriz = new Array(2)
-    numbermatriz[0] = new Array(4)
-    numbermatriz[1] = new Array(4)
+    return numero    
+}
 
-    for (let lin = 0; lin < 2; lin++) {
-        for (let col = 0; col < 4; col++) {
-                let letra = matriz[lin][col]
-                let numero = letra.charCodeAt(0)
-                numbermatriz[lin][col] = numero
-        }
-    }*/
-    //cxSaida.innerHTML = numbermatriz
+function intToChar () {
+    let letra = []
+    let num = new Array(6)
+    num = charToInt()
+    cxConverter.value = num[0]
 
-    /*
-    let m= new Array(6)
-    m[0] = 'o'
-    m[1] = 'a'
-    m = mensagem
-    */
+    //array.push(String.fromCharCode(i))
+    //letra.push(String.fromCharCode(num[i]))
 
-   //document.write(numberMesagem[0][0])
-    //cxSaida.innerHTML = numberMesagem[0]
-   
-    //cxSaida.innerHTML = numberMensagem
+    for (let i=0; i < 6; i++) {
+        letra.push(String.fromCharCode(num[i]))//conversão de int para char
+    }
+    cxConverter.value = letra
+}
 
-   //cxSaida.innerHTML = mensagem[1]
-
+function verificar () {
+    cxTitulo.innerHTML = cxConverter.value
 }
