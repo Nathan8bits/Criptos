@@ -1,1 +1,1 @@
-*converte o string char em int e envia para o inputInt, nao faz o inverso.
+*de char para int e de int para char

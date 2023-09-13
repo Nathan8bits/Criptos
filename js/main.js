@@ -1,7 +1,7 @@
 /*
 funcoes:
     intToChar;  --limite de 6 caracteres
-    charToInt;  --converte oq ta no input charMen e nao oq esta no numberMen
+    charToInt;
 */
 
 let cxCharMen = document.querySelector('#charMensagem')
@@ -10,16 +10,43 @@ let cxConverter = document.querySelector('#converterMensagem')
 let cxTitulo =document.querySelector('#titulo')
 
 let btnEnviar = document.querySelector('#btnEnviar')
-let btnVerificar = document.querySelector('#btnVerificar')
 let btnConverter = document.querySelector('#btnConverter')
 
-btnEnviar.addEventListener('click', charToInt)
-btnVerificar.addEventListener('click', verificar)
-btnConverter.addEventListener('click', intToChar)
+btnEnviar.addEventListener('click', function () {
+    cxNumberMen.value = charToInt(cxCharMen.value)
+})
+btnConverter.addEventListener('click', function () {
+    cxConverter.value = intToChar(cxNumberMen.value)
+})
 
-let numero = new Array(6)//array q recebera a convecao
-function charToInt () {
-    let charMen = cxCharMen.value//mensagem tipo char
+function intToChar (numberMen) {
+    //let numberMen = cxNumberMen.value
+    let numero = [0, 0, 0, 0, 0, 0]
+    let mult = 1
+    let col = 5
+    
+    for(let cont = numberMen.length - 1; cont >= 0; cont--) {
+        if(numberMen[cont] == ',') {
+            mult = 1
+            col--
+        } else {
+            numero[col] += parseInt(numberMen[cont])*mult//com esse valor q sera instanciado o objeto
+            mult *=10
+        }
+    }
+
+    let letra = []
+    for (let i=0; i < 6; i++) {
+        letra.push(String.fromCharCode(numero[i]))//conversão de int para char
+    }
+   
+    return letra
+}
+
+function charToInt (charMen) {
+    //let charMen =  new Array(6)
+    let numero = new Array(6)
+    //charMen = cxCharMen.value//mensagem tipo char
     
     for (let i=0; i < 6; i++) {
         numero[i] = 32//adicionando um espaco em todas as posicoes 
@@ -28,26 +55,6 @@ function charToInt () {
     for (let i=0; i < charMen.length; i++) {
         numero[i] = charMen[i].charCodeAt(0)//efetuando a conversao
     }
-    cxNumberMen.value = numero
 
-    return numero    
-}
-
-function intToChar () {
-    let letra = []
-    let num = new Array(6)
-    num = charToInt()
-    cxConverter.value = num[0]
-
-    //array.push(String.fromCharCode(i))
-    //letra.push(String.fromCharCode(num[i]))
-
-    for (let i=0; i < 6; i++) {
-        letra.push(String.fromCharCode(num[i]))//conversão de int para char
-    }
-    cxConverter.value = letra
-}
-
-function verificar () {
-    cxTitulo.innerHTML = cxConverter.value
+    return numero//com esse valor q sera instanciado o objeto
 }

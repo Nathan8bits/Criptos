@@ -3,23 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
     <title>Document</title>
 </head>
 <body>
-    <h1 id="titulo">titulo</h1>
-    <label for="charMensagem" id="saida">digite sua mensagem:</label>
-    <input type="text" id="charMensagem" />
-    <br>
-    <label for="numberMensagem">sua mensagem em numeros:</label>
-    <input type="text" id="numberMensagem"/>
-    <br>
-    <label for="converterMensagem">sua mensagem de numeros em char:</label>
-    <input type="text" id="converterMensagem"/>
-    <br>
-    <input type="button" id="btnConverter" value="Converte de int pra char">
-    <input type="button" id="btnEnviar" value="Envia mensagem">
-    <input type="button" id="btnVerificar" value="verificar mudanca">
+    <div class="neu neuUp">
+        <h1 id="titulo">titulo</h1>
+        <label for="charMensagem" id="saida">digite sua mensagem:</label>
+        <input type="text" class="neuDownMin inputText" id="charMensagem" />
+        
+        <label for="numberMensagem">sua mensagem em numeros:</label>
+        <input type="text" class="neuDownMin inputText" id="numberMensagem"/>
+        
+        <label for="converterMensagem">sua mensagem de numeros em char:</label>
+        <input type="text" class="neuDownMin inputText" id="converterMensagem"/>
+        
+        <div class="center">
+            <input type="button" class="btn" id="btnConverter" value="int pra char">
+            <input type="button" class="btn" id="btnEnviar" value="char pra int">
+        </div>
+    </div>
 
+
+    
     <script src="js/main.js"></script>
 </body>
     </html>
