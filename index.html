@@ -4,28 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <title>Document</title>
+    <title>cripto 3.2.1 BLUE</title>
 </head>
 <body>
-    <div class="neu neuUp">
-        <h1 id="titulo">titulo</h1>
-        <label for="charMensagem" id="saida">digite sua mensagem:</label>
-        <input type="text" class="neuDownMin inputText" id="charMensagem" />
-        
-        <label for="numberMensagem">sua mensagem em numeros:</label>
-        <input type="text" class="neuDownMin inputText" id="numberMensagem"/>
-        
-        <label for="converterMensagem">sua mensagem de numeros em char:</label>
-        <input type="text" class="neuDownMin inputText" id="converterMensagem"/>
-        
-        <div class="center">
-            <input type="button" class="btn" id="btnConverter" value="int pra char">
-            <input type="button" class="btn" id="btnEnviar" value="char pra int">
+    <main>
+        <h1 id="titulo">Cripto 3.2.1 BLUE</h1>
+        <div class="neu neuUp">
+            <label for="chaveA">Chave A</label>
+            <input type="number" class="neuDownMin inputNumber" id="a00"/>
+            <input type="number" class="neuDownMin inputNumber" id="b01"/>
+            <input type="number" class="neuDownMin inputNumber" id="c10"/>
+            <input type="number" class="neuDownMin inputNumber" id="d11"/>
+            <input type="button" class="btn" id="btnChaveInversa1" value="chave inversa">
         </div>
-    </div>
+        
+        <div class="neu neuUp">
+            <label for="chaveB">Chave B</label>
+            <input type="number" class="neuDownMin inputNumber" id="e00"/>
+            <input type="number" class="neuDownMin inputNumber" id="f01"/>
+            <input type="number" class="neuDownMin inputNumber" id="g10"/>
+            <input type="number" class="neuDownMin inputNumber" id="h11"/>
+            <input type="button" class="btn" id="btnChaveInversa2" value="chave inversa">
+        </div>
+        <br>
+        
+        <div class="neu mensagem neuUp">
+            <label for="charMensagem">sua mensagem:</label>
+            <input type="text" class="neuDownMin inputText" id="charMensagem1"/>
+            <label for="numberMensagem">sua mensagem em numeros:</label>
+            <input type="text" id="numberMensagem1" class="neuDownMin inputText"/>
+            <label for="charMensagem">sua mensagem criptografada:</label>
+            <input type="text" class="neuDownMin inputText" id="criptoMen1"/>
+            <input type="button" class="btn" value="criptografar" id="btnCripto">
+        </div>
 
+        <div class="neu mensagem neuUp">
+            <label for="charMensagem">sua mensagem criptografada:</label>
+            <input type="text" class="neuDownMin inputText" id="criptoMen2"/>
 
-    
-    <script src="js/main.js"></script>
+            <label for="numberMensagem">sua mensagem em numeros:</label>
+            <input type="text" id="numberMensagem2" class="neuDownMin inputText"/>
+
+            <label for="charMensagem">sua mensagem revelada:</label>
+            <input type="text" class="neuDownMin inputText" id="descriptoMen"/>
+            <input type="button" class="btn" value="  descripto  " id="btnDescripto">
+        </div>
+
+        <div class="neu mensagem neuUp"> 
+            <label for="charMensagem">sua mensagem:</label>
+            <input type="text" class="neuDownMin inputText" id="charMensagem2"/>
+            <label for="numberMensagem">sua mensagem em numeros:</label>
+            <input type="text" id="numberMensagem3" class="neuDownMin inputText"/>
+            <label for="converterMensagem">de numeros em mensagem:</label>
+            <input type="text" id="converterMensagem" class="neuDownMin inputText"/>
+            <input type="button" class="btn" id="btnConverter" value="int pra char">
+            <input type="button" class="btn" id="btnEnviar" value="char para int">    
+            
+        </div>
+
+        
+    </main>
+
+    <script type="module" src="js/main.js"></script>
 </body>
-    </html>
+</html>
